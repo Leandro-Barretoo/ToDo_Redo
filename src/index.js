@@ -13,7 +13,7 @@ const taskArr = [{
   completed: false,
   index: 3,
 }];
-  
+
 function displayTask() {
   for (let i = 0; i < taskArr.length; i += 1) {
     const cont = document.getElementById('main-container');
@@ -37,7 +37,7 @@ function displayTask() {
     itemContainer.appendChild(dotsContainer);
     cont.appendChild(itemContainer);
   }
-  
+
   if (taskArr.length > 0) {
     const cont = document.getElementById('main-container');
     const itemContainer = document.createElement('div');
@@ -47,7 +47,7 @@ function displayTask() {
     clear.innerHTML = 'Clear all completed';
     itemContainer.appendChild(clear);
     cont.appendChild(itemContainer);
-  };
+  }
 }
-  
+
 document.addEventListener('DOMContentLoaded', displayTask);
