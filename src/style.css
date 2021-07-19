@@ -1,14 +1,14 @@
+/* stylelint-disable csstree/validator */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
 body {
   font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   background-color: #d7d9d8;
 }
 
-#main-container {
+.main-container {
   background-color: white;
   box-shadow: 0 0 20px #a9aeab;
   width: 50%;
@@ -20,55 +20,76 @@ body {
   border-radius: 0 0 5px 5px;
 }
 
+.title {
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title h1 {
+  font-size: larger;
+  font-weight: 600;
+}
+
+#data {
+  width: -webkit-fill-available;
+  border: none;
+  border-top: 2px solid lightgrey;
+  padding: 1rem;
+}
+
+#data::placeholder {
+  font-size: 18px;
+  font-style: italic;
+  color: #b5b9b7;
+}
+
+#data:focus {
+  outline: none;
+}
+
+.drag {
+  padding: 15px;
+  border-top: 2px solid lightgray;
+}
+
 .item-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid grey;
-}
-
-.square-container {
-  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
-.title-cont {
-  border: none;
-  justify-content: space-between;
+.item-container span {
+  flex: 0.5;
+  text-align: center;
 }
 
-.item {
-  margin: 10px 10px;
+.item-container i {
+  flex: 2;
+  text-align: right;
 }
 
-#task-data {
-  border: none;
-  margin: 15px 20px;
-}
-
-#task-data::placeholder {
-  font-size: 20px;
-  color: #b5b9b7;
-  font-style: italic;
-}
-
-.fa-sync-alt {
-  padding-right: 20px;
-  font-size: 18px;
-  color: darkgray;
-}
-
-.fa-square,
 .fa-ellipsis-v {
-  padding: 0 20px;
-  font-size: 18px;
   color: #b5b9b7;
 }
 
-#clear {
-  justify-content: center;
-  font-size: 18px;
-  background-color: #e9eaea;
-  color: #a9aeab;
-  border-radius: 0 0 5px 5px;
+.clear-container {
+  padding: 20px;
+  text-align: center;
+  background-color: lightgrey;
 }
+
+#clear,
+#clear:visited,
+#clear:active {
+  color: grey;
+  text-decoration: none;
+}
+
+.done {
+  text-decoration-line: line-through;
+  color: grey;
+}
+
+/* stylelint-enable csstree/validator */
