@@ -1,59 +1,36 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# To-Do List
 
-> One paragraph statement about the project.
+> A ToDo list built using webpack.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./todo.png)
 
-Additional description about the project and its features.
+In this project it's asked to build a to do list, where we can add, mark as complete, remove and clear tasks. The goal is to use Webpack to compile the app.
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
-
+- JavaScript
+- Webpack
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
 
 ### Setup
 
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
+- Clone the repo `git clone git@github.com:Leandro-Barretoo/ToDo_Redo.git`
+- `cd` into the directory
+- checkout to the list_structure branch `git chechout list_structure`
+- open in your desired code editor
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Leandro Barreto**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@Leandro-Barretoo](https://github.com/Leandro-Barretoo)
+- LinkedIn: [Leandro Barreto](https://www.linkedin.com/in/leandroobarreto/)
 
 ## 🤝 Contributing
 
