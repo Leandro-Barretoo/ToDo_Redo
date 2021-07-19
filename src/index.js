@@ -1,7 +1,11 @@
+/* eslint-disable max-classes-per-file */
+
 import './reset.css';
 import './style.css';
+import { dragStart, dragOver, drop } from './dropdrag';
+import { isComplete } from './completion';
 
-let taskArr = JSON.parse(localStorage.getItem('myTasks')) || [];
+const taskArr = JSON.parse(localStorage.getItem('myTasks')) || [];
 
 class SaveLocal {
   static saveArr() {
@@ -16,8 +20,9 @@ class CreateTask {
     this.completed = completed;
     this.index = index;
   }
-  arrInsert(value) {
-    taskArr.push(value);
+
+  arrInsert() {
+    taskArr.push(this);
   }
 }
 
@@ -31,7 +36,7 @@ class PopulateList {
     contentHolder.setAttribute('class', 'item-container');
     const data = document.createElement('input');
     data.setAttribute('type', 'checkbox');
-    data.setAttribute('class', 'data');
+    data.setAttribute('class', 'data-box');
     contentHolder.appendChild(data);
     const cont = document.createElement('span');
     const elem = document.createTextNode(`${value.description}`);
@@ -49,44 +54,11 @@ function addTask(description, completed, index) {
   const task = new CreateTask(description, completed, index);
   task.arrInsert(task);
   PopulateList.create(task);
-  SaveLocal.saveArr();
-}
-
-let swapArrayElements = function(arr, indexA, indexB) {
-  let temp = arr[indexA];
-  arr[indexA] = arr[indexB];
-  arr[indexB] = temp;
-};
-
-
-Array.prototype.swap = function(indexA, indexB) {
-  swapArrayElements(this, indexA, indexB);
-}
-
-Array.prototype.move = function(from, to) {
-  this.splice(to, 0, this.splice(from, 1)[0]);
-}
-
-function complete() {
-  const data = document.querySelectorAll('.data');
-  for(let i = 0; i < data.length; i += 1) {
-    data[i].addEventListener('change', (event) => {
-      if (data[i].checked) {
-        data[i].nextSibling.classList.add('done');
-        taskArr[i].completed = 'true';
-        SaveLocal.saveArr();
-      } else {
-        data[i].nextSibling.classList.remove('done');
-        taskArr[i].completed = 'false';
-        SaveLocal.saveArr();
-      }
-    });
-  }
 }
 
 class Preserve {
   static individualTasks() {
-    for(let i = 0; i < taskArr.length; i += 1) {
+    for (let i = 0; i < taskArr.length; i += 1) {
       PopulateList.create(taskArr[i]);
     }
   }
@@ -101,64 +73,36 @@ class Preserve {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  //Preserve.individualTasks();
-  Preserve.initialTask();
-  let items = document.querySelectorAll('#sortList li'),
-      dragged = null;
+  if (taskArr.length === 0) {
+    Preserve.initialTask();
+    SaveLocal.saveArr();
+  } else {
+    Preserve.individualTasks();
+  }
 
-  for (let i of items) {
-    i.addEventListener('dragstart', function() {
-     dragged = this;
-      for (let j of items) {
-        if (j != dragged) { j.classList.add('hint'); }
-      }
-    });
+  const items = document.querySelectorAll('#sortList li');
 
-    i.addEventListener('dragenter', function() {
-      if (this != dragged) { this.classList.add('active'); }
-    });
-
-    i.addEventListener('dragleave', function() {
-      this.classList.remove('active');
-    });
-
-    i.addEventListener('dragend', function() {
-      for (let j of items) {
-        j.classList.remove('hint');
-        j.classList.remove('active');
-      }
-    });
-
-    i.addEventListener('dragover', function(evt) {
-      evt.preventDefault();
-    });
-
-    i.addEventListener('drop', function(evt) {
-      evt.preventDefault();
-      if (this != dragged) {
-        let all = document.querySelectorAll('#sortList li'),
-            draggedpos = 0, droppedpos = 0;
-        for (let it = 0; it < all.length; it += 1) {
-          if (dragged == all[it]) { draggedpos = it; }
-          if (this == all[it]) { droppedpos = it; }
-        }
-        if (draggedpos < droppedpos) {
-          this.parentNode.insertBefore(dragged, this.nextSibling);
-          taskArr.move(draggedpos, droppedpos);
-          for (let j = 0; j < taskArr.length; j += 1) {
-            taskArr[j].index = taskArr.indexOf(taskArr[j]);
-          }
-          SaveLocal.saveArr();
-        } else {
-          this.parentNode.insertBefore(dragged, this);
-          taskArr.move(draggedpos, droppedpos);
-          for (let j = 0; j < taskArr.length; j += 1) {
-            taskArr[j].index = taskArr.indexOf(taskArr[j]);
-          }
-          SaveLocal.saveArr();
-        }
-      }
+  for (let i = 0; i < items.length; i += 1) {
+    items[i].addEventListener('dragstart', () => dragStart(items[i]));
+    items[i].addEventListener('dragover', (e) => dragOver(e));
+    items[i].addEventListener('drop', (e) => {
+      drop(e, items[i], taskArr);
+      SaveLocal.saveArr();
     });
   }
-  complete();
+
+  const data = document.querySelectorAll('.data-box');
+  for (let j = 0; j < data.length; j += 1) {
+    data[j].addEventListener('change', () => {
+      isComplete(data[j], j, taskArr);
+      SaveLocal.saveArr();
+    });
+
+    if (taskArr[j].completed === 'true') {
+      data[j].setAttribute('checked', '');
+      data[j].nextSibling.classList.add('done');
+    }
+  }
 });
+
+/* eslint-enable max-classes-per-file */
