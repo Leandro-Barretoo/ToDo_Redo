@@ -3,8 +3,8 @@ export function isComplete(elem, index, arr) {
     elem.nextSibling.classList.add('done');
     arr[index].completed = 'true';
   } else {
+    elem.removeAttribute('checked', '');
     elem.nextSibling.classList.remove('done');
     arr[index].completed = 'false';
-    elem.removeAttribute('checked', '');
   }
 }
