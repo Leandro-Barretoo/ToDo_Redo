@@ -48,16 +48,25 @@ body {
   outline: none;
 }
 
-.data {
+#form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+}
+
+.data {
   border-top: 2px solid lightgrey;
 }
 
 .fa-level-down-alt {
   padding: 15px;
   color: lightgrey;
+}
+
+.removeBtn {
+  margin-left: 10px;
+  background-color: lightgrey;
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
 }
 
 .drag {
