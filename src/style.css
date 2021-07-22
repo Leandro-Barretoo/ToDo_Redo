@@ -83,6 +83,7 @@ body {
 .item-container span {
   flex: 0.5;
   text-align: center;
+  padding: 5px;
 }
 
 .item-container i {

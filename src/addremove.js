@@ -132,6 +132,8 @@ export default class Preserve {
     clear.addEventListener('click', () => {
       RemoveTask.clearChecked(taskArr);
     });
+
+    this.editTask(taskArr);
   }
 
   static initialTask(taskArr) {
@@ -162,7 +164,33 @@ export default class Preserve {
             SaveLocal.saveArr(taskArr);
           });
         }
+
+        this.editTask(taskArr);
+
       }
     });
+  }
+
+  static editTask(taskArr) {
+    function changeText(spans) {
+      const indexes = document.querySelectorAll('#sortList li');
+      let indexPosition = 0;
+
+      for (let i = 0; i < indexes.length; i += 1) {
+        if (indexes[i] === spans.parentNode.parentNode) {
+          indexPosition = i;
+        }
+      }
+      taskArr[indexPosition].description = spans.innerHTML;
+    }
+
+    let spans = document.querySelectorAll('span');
+    for (let s = 0; s < spans.length; s += 1) {
+      spans[s].contentEditable = "true";
+      spans[s].addEventListener('blur', () => {
+        changeText(spans[s]);
+        SaveLocal.saveArr(taskArr);
+      });
+    }
   }
 }
