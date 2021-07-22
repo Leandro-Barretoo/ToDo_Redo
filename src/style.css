@@ -113,4 +113,10 @@ body {
   color: grey;
 }
 
+[contenteditable="true"]:active,
+[contenteditable="true"]:focus{
+  border: none;
+  outline: none;
+}
+
 /* stylelint-enable csstree/validator */

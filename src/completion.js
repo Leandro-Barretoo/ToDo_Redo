@@ -1,5 +1,4 @@
 export function isComplete(elem, index, arr) {
-
   const indexes = document.querySelectorAll('#sortList li');
   let indexPosition = 0;
 

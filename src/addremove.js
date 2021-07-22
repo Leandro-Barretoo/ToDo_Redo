@@ -1,3 +1,5 @@
+/* eslint-disable max-classes-per-file */
+
 import { dragStart, dragOver, drop } from './dropdrag';
 import { isComplete } from './completion';
 
@@ -39,16 +41,16 @@ class RemoveTask {
   }
 
   static clearChecked(taskArr) {
-    if (taskArr.length != 0) {
-      let itemsToRemove = taskArr.filter(task => task.completed === 'true');
+    if (taskArr.length !== 0) {
+      const itemsToRemove = taskArr.filter((task) => task.completed === 'true');
       const items = document.querySelectorAll('#sortList li');
       for (let i = 0; i < items.length; i += 1) {
-        let temp = items[i].childNodes[0].childNodes[1].innerHTML;
-          for (let j = 0; j < itemsToRemove.length; j += 1) {
-            if (temp === itemsToRemove[j].description) {
-              items[i].parentNode.removeChild(items[i]);
-            }
+        const temp = items[i].childNodes[0].childNodes[1].innerHTML;
+        for (let j = 0; j < itemsToRemove.length; j += 1) {
+          if (temp === itemsToRemove[j].description) {
+            items[i].parentNode.removeChild(items[i]);
           }
+        }
       }
 
       for (let i = 0; i < itemsToRemove.length; i += 1) {
@@ -58,7 +60,6 @@ class RemoveTask {
     }
   }
 }
-
 
 class PopulateList {
   static create(value, taskArr) {
@@ -90,7 +91,7 @@ class PopulateList {
 }
 
 function addTask(taskArr) {
-  let desc = document.getElementById('data');
+  const desc = document.getElementById('data');
   const task = new CreateTask(desc.value, 'false', taskArr.length);
   task.arrInsert(taskArr);
   PopulateList.create(task, taskArr);
@@ -139,10 +140,8 @@ export default class Preserve {
   static initialTask(taskArr) {
     const form = document.getElementById('form');
     const input = document.querySelector('#data');
-    const addBtn = document.querySelector('.fa-level-down-alt');
-
     input.addEventListener('keypress', (e) => {
-      if (e.key === "Enter") {
+      if (e.key === 'Enter') {
         addTask(taskArr);
         form.reset();
 
@@ -166,7 +165,6 @@ export default class Preserve {
         }
 
         this.editTask(taskArr);
-
       }
     });
   }
@@ -184,9 +182,9 @@ export default class Preserve {
       taskArr[indexPosition].description = spans.innerHTML;
     }
 
-    let spans = document.querySelectorAll('span');
+    const spans = document.querySelectorAll('span');
     for (let s = 0; s < spans.length; s += 1) {
-      spans[s].contentEditable = "true";
+      spans[s].contentEditable = 'true';
       spans[s].addEventListener('blur', () => {
         changeText(spans[s]);
         SaveLocal.saveArr(taskArr);
@@ -194,3 +192,5 @@ export default class Preserve {
     }
   }
 }
+
+/* eslint-enable max-classes-per-file */
