@@ -40,19 +40,25 @@ class RemoveTask {
 
   static clearChecked(taskArr) {
     if (taskArr.length != 0) {
-      for (let j = 0; j < taskArr.length; j += 1) {
-        if (taskArr[j].completed === 'true') {
-          const items = document.querySelectorAll('#sortList li');
-          items[j].parentNode.removeChild(items[j]);
-          this.outCollection(taskArr[j], taskArr);
-          //SaveLocal.saveArr(taskArr);
-        }
-        taskArr[j].index = taskArr.indexOf(taskArr[j]);
+      let itemsToRemove = taskArr.filter(task => task.completed === 'true');
+      const items = document.querySelectorAll('#sortList li');
+      for (let i = 0; i < items.length; i += 1) {
+        let temp = items[i].childNodes[0].childNodes[1].innerHTML;
+          for (let j = 0; j < itemsToRemove.length; j += 1) {
+            if (temp === itemsToRemove[j].description) {
+              items[i].parentNode.removeChild(items[i]);
+            }
+          }
+      }
+
+      for (let i = 0; i < itemsToRemove.length; i += 1) {
+        this.outCollection(itemsToRemove[i], taskArr);
+        SaveLocal.saveArr(taskArr);
       }
     }
-    SaveLocal.saveArr(taskArr);
   }
 }
+
 
 class PopulateList {
   static create(value, taskArr) {
