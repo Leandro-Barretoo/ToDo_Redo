@@ -20,4 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Preserve.initialTask(taskArr);
 });
 
+// for the edit use span.contenteditable = true
+
 /* eslint-enable max-classes-per-file */

@@ -37,6 +37,21 @@ class RemoveTask {
     }
     SaveLocal.saveArr(taskArr);
   }
+
+  static clearChecked(taskArr) {
+    if (taskArr.length != 0) {
+      for (let j = 0; j < taskArr.length; j += 1) {
+        if (taskArr[j].completed === 'true') {
+          const items = document.querySelectorAll('#sortList li');
+          items[j].parentNode.removeChild(items[j]);
+          this.outCollection(taskArr[j], taskArr);
+          //SaveLocal.saveArr(taskArr);
+        }
+        taskArr[j].index = taskArr.indexOf(taskArr[j]);
+      }
+    }
+    SaveLocal.saveArr(taskArr);
+  }
 }
 
 class PopulateList {
@@ -106,6 +121,11 @@ export default class Preserve {
         data[j].nextSibling.classList.add('done');
       }
     }
+
+    const clear = document.getElementById('clear');
+    clear.addEventListener('click', () => {
+      RemoveTask.clearChecked(taskArr);
+    });
   }
 
   static initialTask(taskArr) {
