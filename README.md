@@ -13,6 +13,9 @@ In this project it's asked to build a to do list, where we can add, mark as comp
 - JavaScript
 - Webpack
 
+## Live Demo
+[Live Demo Link](https://leandro-barretoo.github.io/ToDo_Redo/)
+
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
@@ -21,8 +24,10 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone the repo `git clone git@github.com:Leandro-Barretoo/ToDo_Redo.git`
 - `cd` into the directory
-- checkout to the list_structure branch `git chechout list_structure`
+- run `npm i` or `npm install` to download required node_modules
+- checkout to the desired branch `git chechout`
 - open in your desired code editor
+- run `npm start` to start live server
 
 
 ## Authors
