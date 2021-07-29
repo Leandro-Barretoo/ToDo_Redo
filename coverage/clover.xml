@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1627573793568" clover="3.2.0">
-  <project timestamp="1627573793569" name="All files">
+<coverage generated="1627580589573" clover="3.2.0">
+  <project timestamp="1627580589573" name="All files">
     <metrics statements="148" coveredstatements="33" conditionals="22" coveredconditionals="0" methods="32" coveredmethods="4" elements="202" coveredelements="37" complexity="0" loc="148" ncloc="148" packages="1" files="3" classes="3"/>
     <file name="addremove.js" path="/home/leandro/Desktop/Microverse/jest-tests/ToDo_Redo/src/addremove.js">
       <metrics statements="107" coveredstatements="29" conditionals="10" coveredconditionals="0" methods="25" coveredmethods="4"/>
@@ -128,14 +128,14 @@
     </file>
     <file name="dropdrag.js" path="/home/leandro/Desktop/Microverse/jest-tests/ToDo_Redo/src/dropdrag.js">
       <metrics statements="30" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="0"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
+      <line num="1" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
       <line num="4" count="0" type="stmt"/>
       <line num="5" count="0" type="stmt"/>
       <line num="6" count="0" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
       <line num="11" count="0" type="stmt"/>
-      <line num="15" count="1" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
       <line num="16" count="0" type="stmt"/>
       <line num="20" count="0" type="stmt"/>
       <line num="24" count="0" type="stmt"/>
