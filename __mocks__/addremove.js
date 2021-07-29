@@ -1,4 +1,5 @@
-import {CreateTask, PopulateList} from '../src/addremove.js';
+import { CreateTask, PopulateList } from '../src/addremove';
+import localStoragemock from './local-storage-mocks';
 
 export function addTask(arr) {
   const description = 'New task';
@@ -15,4 +16,14 @@ export function outCollection(task, arr) {
   const itemIndex = arr.indexOf(task);
   arr.splice(itemIndex, 1);
   return arr;
+}
+
+export function deleteLocalStorage(key, existingStorage, delItem) {
+  // deleting by updating
+
+  const itemsToRemove = existingStorage.filter((task) => task.index !== delItem.index);
+
+  localStoragemock.setItem(key, itemsToRemove);
+
+  return localStoragemock.getItem(key);
 }

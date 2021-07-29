@@ -4,6 +4,7 @@ const localStoragemock = {
   setItem: (key, value) => {
     store[key] = value;
   },
+  key: (key) => key,
 };
 
 export default localStoragemock;
