@@ -1,5 +1,5 @@
-import {addTask} from '../__mocks__/addremove.js';
-import {RemoveTask} from '../src/addremove.js';
+import {addTask, outCollection} from '../__mocks__/addremove.js';
+//import {RemoveTask} from '../src/addremove.js';
 
 describe('add function', () => {
   test('add item to arr', () => {
@@ -23,3 +23,19 @@ describe('add function', () => {
     expect(list).toHaveLength(1);
   })
 });
+
+describe('remove function', () => {
+  test('removes task from arr', () => {
+    const newArr = ['Coding', 2];
+    const taskToRemove = 'Coding';
+    outCollection(taskToRemove, newArr);
+    expect(newArr.length).toBe(1);
+  })
+
+  test('removes task from display', () => {
+    document.body.innerHTML =
+    ' <div>' +
+    '   <ul id="sortList"></ul>' +
+    ' </div>';
+  })
+})

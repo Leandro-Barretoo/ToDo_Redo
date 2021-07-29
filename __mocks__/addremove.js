@@ -6,3 +6,9 @@ export function addTask(arr) {
   task.arrInsert(arr);
   PopulateList.create(task, arr);
 }
+
+export function outCollection(task, arr) {
+  const itemIndex = arr.indexOf(task);
+  arr.splice(itemIndex, 1);
+  return arr;
+}
