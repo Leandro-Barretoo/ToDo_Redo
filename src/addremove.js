@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
 import { dragStart, dragOver, drop } from './dropdrag';
-import { isComplete } from './completion';
+import isComplete from './completion';
 
 class SaveLocal {
   static saveArr(taskArr) {

@@ -1,4 +1,4 @@
-export function isComplete(elem, index, arr) {
+function isComplete(elem, index, arr) {
   const indexes = document.querySelectorAll('#sortList li');
   let indexPosition = 0;
 
@@ -17,3 +17,4 @@ export function isComplete(elem, index, arr) {
     arr[indexPosition].completed = 'false';
   }
 }
+export default isComplete;
