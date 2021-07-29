@@ -7,6 +7,10 @@ export function addTask(arr) {
   PopulateList.create(task, arr);
 }
 
+export function deleteBtn(btn) {
+  btn.parentNode.parentNode.parentNode.removeChild(btn.parentNode.parentNode);
+}
+
 export function outCollection(task, arr) {
   const itemIndex = arr.indexOf(task);
   arr.splice(itemIndex, 1);
