@@ -6,10 +6,12 @@ const swapArrayElements = function (arr, indexA, indexB) {
   arr[indexB] = temp;
 };
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.swap = function (indexA, indexB) {
   swapArrayElements(this, indexA, indexB);
 };
 
+// eslint-disable-next-line no-extend-native
 Array.prototype.move = function (from, to) {
   this.splice(to, 0, this.splice(from, 1)[0]);
 };
@@ -29,8 +31,12 @@ export function drop(e, i, taskArr) {
     let dragposition = 0;
     let dropposition = 0;
     for (let g = 0; g < all.length; g += 1) {
-      if (dragged === all[g]) { dragposition = g; }
-      if (i === all[g]) { dropposition = g; }
+      if (dragged === all[g]) {
+        dragposition = g;
+      }
+      if (i === all[g]) {
+        dropposition = g;
+      }
     }
     if (dragposition < dropposition) {
       i.parentNode.insertBefore(dragged, i.nextSibling);
