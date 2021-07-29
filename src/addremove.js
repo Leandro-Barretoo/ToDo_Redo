@@ -10,7 +10,7 @@ class SaveLocal {
   }
 }
 
-class CreateTask {
+export class CreateTask {
   constructor(description, completed, index) {
     this.description = description;
     this.completed = completed;
@@ -22,7 +22,7 @@ class CreateTask {
   }
 }
 
-class RemoveTask {
+export class RemoveTask {
   static deleteBtn(btn, value, taskArr) {
     btn.addEventListener('click', (ev) => {
       const button = ev.target;
@@ -61,7 +61,7 @@ class RemoveTask {
   }
 }
 
-class PopulateList {
+export class PopulateList {
   static create(value, taskArr) {
     const main = document.getElementById('sortList');
     const content = document.createElement('li');
@@ -90,7 +90,7 @@ class PopulateList {
   }
 }
 
-function addTask(taskArr) {
+export function addTask(taskArr) {
   const desc = document.getElementById('data');
   const task = new CreateTask(desc.value, 'false', taskArr.length);
   task.arrInsert(taskArr);
