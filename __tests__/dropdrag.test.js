@@ -1,8 +1,8 @@
-import { drop } from '../__mocks__/dropdrag.js';
+import drop from '../__mocks__/dropdrag.js';
 import { clearChecked } from '../__mocks__/addremove.js';
 import { changeText, arrEdit } from '../__mocks__/edit.mock';
 import localStoragemock from '../__mocks__/local-storage-mocks';
-import { isComplete } from '../__mocks__/isCompleted.mock';
+import isComplete from '../__mocks__/isCompleted.mock';
 
 describe('drag and drop', () => {
   test('update index', () => {
