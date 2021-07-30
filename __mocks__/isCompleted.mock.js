@@ -1,5 +1,5 @@
-export function isComplete(elements, arr) {
-  for (let i = 0; i < elements.length; i++) {
+function isComplete(elements, arr) {
+  for (let i = 0; i < elements.length; i += 1) {
     if (elements[i].checked) {
       arr[i].completed = false;
     } else {
@@ -8,3 +8,4 @@ export function isComplete(elements, arr) {
   }
   return arr;
 }
+export default isComplete;
