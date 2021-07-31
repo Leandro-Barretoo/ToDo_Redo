@@ -29,6 +29,9 @@ To get a local copy up and running follow these simple example steps.
 - open in your desired code editor
 - run `npm start` to start live server
 
+## Tests
+
+- Used Jest library to test features
 
 ## Authors
 
